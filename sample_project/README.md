@@ -8,7 +8,7 @@ that copies the project to user specified path and set it's name. For more infor
 
 
 ## How to use example
-需要下载后自行修改socket中的espnow部分，填写mac或者参考例程自行修改。
+We encourage the users to use the example as a template for the new projects.
 A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
 
 ## Example folder contents
