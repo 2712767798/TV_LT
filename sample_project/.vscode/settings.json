@@ -66,10 +66,16 @@
     "config.h": "c",
     "esp_https_server.h": "c",
     "protocol_examples_common.h": "c",
-    "esp_tls_crypto.h": "c"
+    "esp_tls_crypto.h": "c",
+    "gpio.h": "c",
+    "stdbool.h": "c",
+    "esp_wifi.h": "c",
+    "esp_timer.h": "c",
+    "semphr.h": "c",
+    "esp_netif.h": "c"
   },
   "idf.flashType": "UART",
-  "idf.portWin": "COM7",
+  "idf.portWin": "COM8",
   "idf.customExtraVars": {
     "OPENOCD_SCRIPTS": "E:\\app\\Espressif\\tools\\openocd-esp32\\v0.11.0-esp32-20211220/openocd-esp32/share/openocd/scripts",
     "IDF_CCACHE_ENABLE": "1"

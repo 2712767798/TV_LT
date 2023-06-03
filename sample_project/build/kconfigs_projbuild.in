@@ -1,0 +1,8 @@
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/components/bootloader/Kconfig.projbuild"
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/components/esp_app_format/Kconfig.projbuild"
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/components/esp_rom/Kconfig.projbuild"
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/components/esptool_py/Kconfig.projbuild"
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/components/partition_table/Kconfig.projbuild"
+source "E:/study/esp/DEMO/lvgl/lvgl8.3/TV_LT/sample_project/main/Kconfig.projbuild"
+source "E:/app/espidf/Espressif/frameworks/esp-idf-v5.0.1/examples/common_components/protocol_examples_common/Kconfig.projbuild"
+source "E:/study/esp/DEMO/lvgl/lvgl8.3/TV_LT/sample_project/components/socket/Kconfig.projbuild"

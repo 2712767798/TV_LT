@@ -51,14 +51,14 @@ void CST816_IIC_WriteREG(unsigned char reg, unsigned char date)
 	uint8_t write_buf[2] = {0};
 	write_buf[0] = reg;
 	write_buf[1] = date;
-	i2c_master_write_to_device(I2C_MASTER_NUM, CST816_ADDR, &write_buf, sizeof(write_buf), I2C_MASTER_TIMEOUT_MS / portTICK_RATE_MS);
+	i2c_master_write_to_device(I2C_MASTER_NUM, CST816_ADDR, &write_buf, sizeof(write_buf), I2C_MASTER_TIMEOUT_MS / portTICK_PERIOD_MS);
 	// ESP_LOGI("wri", "is %d\r\n", sizeof(write_buf));
 }
 
 unsigned char CST816_Get_ChipID()
 {
 	uint8_t sbuff = ChipID;
-	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &sbuff, 1, &sbuff, 1, I2C_MASTER_TIMEOUT_MS / portTICK_RATE_MS);
+	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &sbuff, 1, &sbuff, 1, I2C_MASTER_TIMEOUT_MS / portTICK_PERIOD_MS);
 	ESP_LOGI("id", "is %d\r\n", sbuff);
 	return sbuff;
 }
@@ -68,7 +68,7 @@ void CST816_Get_XY(int16_t *x, int16_t *y)
 	unsigned char temp[4], csxy = 0x03;
 	int16_t x2, y2;
 
-	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &csxy, 1, temp, 4, I2C_MASTER_TIMEOUT_MS / portTICK_RATE_MS);
+	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &csxy, 1, temp, 4, I2C_MASTER_TIMEOUT_MS / portTICK_PERIOD_MS);
 
 	y2 = (unsigned int)((temp[0] & 0x0F) << 8) | temp[1]; //(temp[0]&0X0F)<<4|
 	x2 = (unsigned int)((temp[2] & 0x0F) << 8) | temp[3]; //(temp[2]&0X0F)<<4|
@@ -85,7 +85,7 @@ void CST816_Get_XY(int16_t *x, int16_t *y)
 bool CST816_Get_Sta()
 {
 	unsigned char sta, temp[2] = {0x02, 0x02};
-	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &temp, 1, temp, 1, I2C_MASTER_TIMEOUT_MS / portTICK_RATE_MS);
+	i2c_master_write_read_device(I2C_MASTER_NUM, CST816_ADDR, &temp, 1, temp, 1, I2C_MASTER_TIMEOUT_MS / portTICK_PERIOD_MS);
 	sta = temp[0];
 	if (sta != 255 && sta != 0)
 	{

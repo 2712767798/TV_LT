@@ -9,4 +9,6 @@ idf_component_register(SRCS	${SOURCES}
                     REQUIRES nvs_flash
                     protocol_examples_common
                     esp_https_server
+                    esp_netif
+                    esp_wifi
                       )

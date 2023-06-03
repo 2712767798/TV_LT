@@ -10,4 +10,6 @@ idf_component_register(SRCS	${SOURCES}
                     fatfs
                     ui
                     heap
+                    esp_wifi
+                    esp_timer
                       )

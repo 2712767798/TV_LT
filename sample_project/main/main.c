@@ -128,15 +128,15 @@ void app_main(void)
     {
         ESP_LOGI(TAG, "Partition size: total: %d, used: %d", total, used);
     }
-    xTaskCreatePinnedToCore(lvgl_task_loop, "loop task", 1024 * 20 + 512, NULL, 21, NULL, 1);
-    //vTaskDelete(NULL);
+    xTaskCreatePinnedToCore(lvgl_task_loop, "loop task", 1024 * 5 + 512, NULL, 21, NULL, 1);
+    vTaskDelete(NULL);
     // xTaskCreatePinnedToCore(sdmcc_initt,"SDMCC",1024*8,NULL,1,NULL,1);
 
-    while (1)
-    {
-        cap_task_get_free();
-        vTaskDelay(5000);
-    }
+    // while (1)
+    // {
+    //     cap_task_get_free();
+    //     vTaskDelay(5000);
+    // }
 
     // while (1)
     // {

@@ -14,12 +14,13 @@
 */
 
 #include "espnow_example.h"
+#include "esp_mac.h"
 
 #define ESPNOW_MAXDELAY 512
 
 static const char *TAG = "espnow_example";
 
-static xQueueHandle s_example_espnow_queue;
+static QueueHandle_t s_example_espnow_queue;
 
 static uint8_t s_example_broadcast_mac[ESP_NOW_ETH_ALEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; // 广播发送的地址
 static uint8_t s_example_broadcast_macs[2][ESP_NOW_ETH_ALEN] = {{0x60, 0x55, 0xF9, 0x79, 0x84, 0xc4}, {0x60, 0x55, 0xf9, 0x74, 0x78, 0xb4}};
@@ -255,7 +256,7 @@ static void example_espnow_task(void *pvParameter)
                 之前的哪个数据帧里面的延迟时间是在这里用的*/
                 if (send_param->delay > 0)
                 {
-                    vTaskDelay(send_param->delay / portTICK_RATE_MS);
+                    vTaskDelay(send_param->delay / portTICK_PERIOD_MS);
                 }
 
                 ESP_LOGI(TAG, "send data to " MACSTR "", MAC2STR(send_cb->mac_addr));
